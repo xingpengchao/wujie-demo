@@ -1,4 +1,14 @@
+<!--
+ * @Author: allenxing
+ * @Date: 2024-04-29 23:32:44
+ * @LastEditors: allenxing
+ * @LastEditTime: 2024-05-03 22:25:13
+ * 
+ * Copyright (c) 2024 by allenxing All Rights Reserved. 
+-->
 <script setup lang='ts'>
+import { login } from '@/api/test'
+
 const route = useRoute()
 const router = useRouter()
 const { proxy } = getCurrentInstance()! // 非空断言 -- 用于断言操作对象是非null和非undefined类型
@@ -25,6 +35,10 @@ watchEffect(() => {
 })
 
 onMounted(() => {
+  login({
+    username: 'allenxing',
+    password: '123456'
+  })
   console.log('proxy', router, proxy)
 })
 
