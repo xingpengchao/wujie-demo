@@ -1,6 +1,15 @@
+<!--
+ * @Author: allenxing
+ * @Date: 2024-04-29 23:32:44
+ * @LastEditors: allenxing
+ * @LastEditTime: 2024-05-03 22:25:13
+ * 
+ * Copyright (c) 2024 by allenxing All Rights Reserved. 
+-->
 <script setup lang='ts'>
 // const { exec } = require('child_process');
 import child_process from "child_process";
+import { login } from '@/api/test'
 
 const route = useRoute()
 const router = useRouter()
@@ -29,6 +38,10 @@ watchEffect(() => {
 })
 
 onMounted(() => {
+  login({
+    username: 'allenxing',
+    password: '123456'
+  })
   console.log('proxy', router, proxy)
 })
 

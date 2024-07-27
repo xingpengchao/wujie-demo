@@ -2,7 +2,7 @@
  * @Author: allenxing
  * @Date: 2024-04-29 17:46:34
  * @LastEditors: allenxing
- * @LastEditTime: 2024-04-30 02:30:57
+ * @LastEditTime: 2024-05-03 22:37:01
  * @Description: Vite配置
  * 
  * Copyright (c) 2024 by allenxing All Rights Reserved. 
