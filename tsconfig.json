@@ -28,6 +28,8 @@
       "assets/*": ["src/assets/*"]
     },
 
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "types": ["vite/client"],
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "types/**/*.d.ts"],
