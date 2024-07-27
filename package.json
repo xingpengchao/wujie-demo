@@ -9,13 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/node": "^20.12.7",
     "ant-design-vue": "^4.2.1",
+    "child_process": "^1.0.2",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
+    "@types/node": "^20.14.12",
     "@types/nprogress": "^0.2.3",
     "@vitejs/plugin-vue": "^5.0.4",
     "less": "^4.2.0",
@@ -27,6 +28,7 @@
     "unplugin-vue-setup-extend-plus": "^1.0.1",
     "vite": "^5.2.0",
     "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-optimizer": "^1.4.3",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-tsc": "^2.0.6"
   }

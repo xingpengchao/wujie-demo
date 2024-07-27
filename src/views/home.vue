@@ -1,4 +1,7 @@
 <script setup lang='ts'>
+// const { exec } = require('child_process');
+import child_process from "child_process";
+
 const route = useRoute()
 const router = useRouter()
 const { proxy } = getCurrentInstance()! // 非空断言 -- 用于断言操作对象是非null和非undefined类型
@@ -13,6 +16,7 @@ const data = reactive({
 computed(() => {
 
 })
+
 watch(
   route,
   () => {
@@ -28,6 +32,24 @@ onMounted(() => {
   console.log('proxy', router, proxy)
 })
 
+const runShellScript = () => {
+  console.log(22222, child_process);
+  
+  const scriptPath = '/src/shell/test.sh'; // 替换为你的脚本路径
+  child_process.exec(`sh ${scriptPath}`, (error, stdout, stderr) => {
+    console.log('执行Shell脚本', error, stdout, stderr);
+    
+    if (error) {
+      console.error(`执行出错: ${error}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    if (stderr) {
+      console.error(`stderr: ${stderr}`);
+    }
+  });
+}
+
 defineExpose({
   ...toRefs(data)
 })
@@ -42,6 +64,8 @@ defineExpose({
       <svg-icon name="vue" customClass="vue-icon" color="blue"/>
     </a>
     <HelloWorld msg="Vite + Vue" />
+
+    <a-button @click="runShellScript">运行Shell脚本</a-button>
   </div>
 </template>
 

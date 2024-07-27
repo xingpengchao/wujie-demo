@@ -27,6 +27,9 @@
       "components/*": ["src/components/*"],
       "assets/*": ["src/assets/*"]
     },
+
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "types/**/*.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]

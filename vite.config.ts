@@ -10,6 +10,7 @@
 import { defineConfig, loadEnv } from 'vite'
 import path from 'path'
 import fs from 'fs'
+import optimizer from 'vite-plugin-optimizer'
 import createVitePlugins from './vite/plugins'
 
 // https://vitejs.dev/config/
@@ -34,7 +35,15 @@ export default defineConfig(({ mode, command }) => {
       assetsDir: "assets", //指定静态资源存放路径
         sourcemap: false, //是否构建source map 文件
     },
-    plugins: createVitePlugins(env, command === 'build'),
+    plugins: [
+      createVitePlugins(env, command === 'build'),
+      optimizer({
+        child_process: () => ({
+          find: /^(node:)?child_process$/,
+          code: `const child_process = import.meta.glob('child_process'); export { child_process as default }`
+        })
+      })
+    ],
     resolve: {
       // https://cn.vitejs.dev/config/#resolve-alias
       alias: {
